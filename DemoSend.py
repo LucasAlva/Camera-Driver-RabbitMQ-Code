@@ -9,8 +9,8 @@ host_input_name = raw_input("Please Connect to a Host ")
 def send(msg):
     connection = pika.BlockingConnection(pika.ConnectionParameters(host = host_input_name))
     channel = connection.channel()
-    channel.queue_declare(queue = 'demo')
-    channel.basic_publish(exchange = '',  routing_key = 'demo',  body = msg)
+    channel.queue_declare(queue = 'dem')
+    channel.basic_publish(exchange = '',  routing_key = 'dem',  body = msg)
     
 #Camera
 cam1 = cv2.VideoCapture(0)
