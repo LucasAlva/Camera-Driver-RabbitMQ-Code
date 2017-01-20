@@ -4,7 +4,7 @@ import numpy as np
 host_in = raw_input("Plese Enter the Host: ")
 connection = pika.BlockingConnection(pika.ConnectionParameters(host = host_in))
 channel = connection.channel()
-channel.queue_declare(queue = 'demo')
+channel.queue_declare(queue = 'dem')
 
 def callback(ch,  method,  properties, body):
     print(type(body)) 
@@ -24,7 +24,7 @@ d = 0
 
 #Main Loop
 while(True):
-    method_frame,  header_frame,  body = channel.basic_get(queue = 'demo')
+    method_frame,  header_frame,  body = channel.basic_get(queue = 'dem')
     nparr = np.fromstring(body,  np.uint8)
     img = cv2.imdecode(nparr,  cv2.CV_LOAD_IMAGE_COLOR)
     im = cv2.cvtColor(img,  cv2.COLOR_BGR2GRAY)
