@@ -1,8 +1,10 @@
 import cv2
 import pika
 import numpy as np
-host_in = raw_input("Plese Enter the Host: ")
-connection = pika.BlockingConnection(pika.ConnectionParameters(host = host_in))
+#host_in = raw_input("Plese Enter the Host: ")
+credentials = pika.PlainCredentials('username', 'password')
+parameters = pika.ConnectionParameters('172.20.36.177', credentials=credentials)
+connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 channel.queue_declare(queue = 'dem')
 
