@@ -3,7 +3,10 @@ import numpy as np
 import pika
 import sys
 
-host_input_name = raw_input("Please Connect to a Host ")
+#host_input_name = raw_input("Please Connect to a Host ")
+
+credentials = pika.PlainCredentials('username', 'password')
+parameters = pika.ConnectionParameters('172.20.36.177', credentials=credentials)
 
 #Sends a message
 def send(msg):
